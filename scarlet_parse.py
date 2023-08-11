@@ -15,7 +15,7 @@ def readfile(directoryname, regfile):
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
             with open(f'output_csvs/{outfile}.csv', 'a+') as fileout:
-                print(f'reading: {outline}, saving to {outfile}')
+                print(f'reading: {outline}, saving to {outfile}.csv')
                 fileout.seek(0)
                 if outline in fileout.read():
                     break
@@ -67,13 +67,19 @@ def readfile(directoryname, regfile):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        readfile(directoryname=sys.argv[1], regfile='_Conversation_')
+        print(f"attempting to read {sys.argv[1]}")
+        try:
+            print(f"opening {sys.argv[1]}")
+            readfile(directoryname=sys.argv[1], regfile='_Conversation_')
+            print('process complete')
+        except:
+            print('process not complete')
     else:
-        print("attempting to read ~/DEVWEB/2022/nodejs/scratch")
+        print("attempting to read test_txts")
         # readfile(directoryname='test_txts', regfile='_Conversation_')
         try:
-            print("opening ~/DEVWEB/2022/nodejs/scratch")
-            readfile(directoryname='~/DEVWEB/2022/nodejs/scratch', regfile='_Conversation_')
+            print("opening test_txts")
+            readfile(directoryname='test_txts', regfile='_Conversation_')   # '~/DEVWEB/2022/nodejs/scratch' ~/DEVWEB/2022/nodejs/scratch
             print('process complete')
         except:
             print('process not complete')
