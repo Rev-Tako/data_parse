@@ -8,7 +8,9 @@ def readfile(directoryname, regfile):
     filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*.txt'
     txt = glob.glob(filepath)
     txt.sort()
+    print('successfully started reading directory')
     for filename in txt:
+        print(f'attempting to read file: {filename}')
         outfile = filename.replace(f'{regfile}*.txt', '').replace(f'{directoryname}/', '').replace(f'.txt', '')[0:6]
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
@@ -70,6 +72,7 @@ if __name__ == '__main__':
         print("attempting to read ~/DEVWEB/2022/nodejs/scratch")
         # readfile(directoryname='test_txts', regfile='_Conversation_')
         try:
+            print("opening ~/DEVWEB/2022/nodejs/scratch")
             readfile(directoryname='~/DEVWEB/2022/nodejs/scratch', regfile='_Conversation_')
             print('process complete')
         except:
