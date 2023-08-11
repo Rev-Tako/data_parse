@@ -23,11 +23,11 @@ def readfile(directoryname, regfile):
         outfile = filename.replace(f'{regfile}*.txt', '').replace(f'{directoryname}/', '').replace(f'.txt', '')[0:6]
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
-            print(f'creating output file at: output_csvs/outfile.csv')
+            print(f'creating output file at: output_csvs/outfile_0.csv')
             if not os.path.isdir('output_csvs'):
                 os.mkdir('output_csvs')
-            with open(f'output_csvs/outfile.csv', 'a+') as fileout:
-                print(f'reading: {outline}, saving to outfile.csv')
+            with open(f'output_csvs/outfile_0.csv', 'a+') as fileout:
+                print(f'reading: {outline}, saving to outfile_0.csv')
                 fileout.seek(0)
                 if outline in fileout.read():
                     break
@@ -45,9 +45,11 @@ def readfile(directoryname, regfile):
                             newline = newline.rstrip(newline[-1])
                             newline = newline.rstrip(newline[-1])
                             newline = newline.rstrip(newline[-1])
+                            newline = newline + ','
                         if newline[-2:] == '"\n':
                             newline = newline.rstrip(newline[-1])
                             newline = newline.rstrip(newline[-1])
+                            newline = newline + ','
                     else:
                         newline = line.replace('\n', '')
                         newline = f'"{newline}",'
@@ -96,7 +98,7 @@ if __name__ == '__main__':
         # readfile(directoryname='test_txts', regfile='_Conversation_')
         try:
             print("opening test_txts")
-            readfile(directoryname='test_txts', regfile='_Conversation_')   # '~/DEVWEB/2022/nodejs/scratch' ~/DEVWEB/2022/nodejs/scratch
+            readfile(directoryname='test_txts', regfile='_Conversation_')   # '~/DEVWEB/2022/nodejs/scratch' ~/DEVWEB/2022/nodejs/scratch  /home/pqb20197/DEVWEB/2022/nodejs/scratch
         except Exception as e:
             # handle any other exception
             print('process not complete')
