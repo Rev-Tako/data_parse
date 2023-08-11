@@ -14,6 +14,7 @@ def readfile(directoryname, regfile):
         print('successfully started reading directory')
         print(f'files identified: {txt}')
     else:
+        print(f'files identified: {txt}')
         print('cannot read files, try again')
 
     for filename in txt:
