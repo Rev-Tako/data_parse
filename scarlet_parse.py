@@ -9,7 +9,11 @@ def readfile(directoryname, regfile):
     filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*.txt'
     txt = glob.glob(filepath)
     txt.sort()
-    print('successfully started reading directory')
+
+    if txt:
+        print('successfully started reading directory')
+        print(f'files identified: {txt}')
+
     for filename in txt:
         print(f'attempting to read file: {filename}')
         outfile = filename.replace(f'{regfile}*.txt', '').replace(f'{directoryname}/', '').replace(f'.txt', '')[0:6]
