@@ -14,6 +14,7 @@ def readfile(directoryname, regfile):
         outfile = filename.replace(f'{regfile}*.txt', '').replace(f'{directoryname}/', '').replace(f'.txt', '')[0:6]
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
+            print(f'creating output file at: output_csvs/{outfile}.csv')
             with open(f'output_csvs/{outfile}.csv', 'a+') as fileout:
                 print(f'reading: {outline}, saving to {outfile}.csv')
                 fileout.seek(0)
@@ -75,7 +76,7 @@ if __name__ == '__main__':
         except Exception as e:
             # handle any other exception
             print('process not complete')
-            print("Error '{0}' occured. Arguments {1}.".format(e.message, e.args))
+            print(str(e))
     else:
         print("attempting to read test_txts")
         # readfile(directoryname='test_txts', regfile='_Conversation_')
@@ -86,5 +87,5 @@ if __name__ == '__main__':
         except Exception as e:
             # handle any other exception
             print('process not complete')
-            print("Error '{0}' occured. Arguments {1}.".format(e.message, e.args))
+            print(print(str(e)))
 
