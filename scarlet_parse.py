@@ -1,4 +1,5 @@
 import sys
+import os
 import glob
 import re
 from os.path import exists
@@ -15,6 +16,8 @@ def readfile(directoryname, regfile):
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
             print(f'creating output file at: output_csvs/{outfile}.csv')
+            if not os.path.isdir('output_csvs'):
+                os.mkdir('output_csvs')
             with open(f'output_csvs/{outfile}.csv', 'a+') as fileout:
                 print(f'reading: {outline}, saving to {outfile}.csv')
                 fileout.seek(0)
