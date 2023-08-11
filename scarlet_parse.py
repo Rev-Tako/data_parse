@@ -6,7 +6,7 @@ from os.path import exists
 
 
 def readfile(directoryname, regfile):
-    filepath = f'{directoryname}\\[0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'
+    filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'
     print(f'filepattern expected:  {filepath}')
     txt = glob.glob(filepath)
     txt.sort()
