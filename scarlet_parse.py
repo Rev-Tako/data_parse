@@ -23,11 +23,11 @@ def readfile(directoryname, regfile):
         outfile = filename.replace(f'{regfile}*.txt', '').replace(f'{directoryname}/', '').replace(f'.txt', '')[0:6]
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
-            print(f'creating output file at: output_csvs/{outfile}.csv')
+            print(f'creating output file at: output_csvs/outfile.csv')
             if not os.path.isdir('output_csvs'):
                 os.mkdir('output_csvs')
-            with open(f'output_csvs/{outfile}.csv', 'a+') as fileout:
-                print(f'reading: {outline}, saving to {outfile}.csv')
+            with open(f'output_csvs/outfile.csv', 'a+') as fileout:
+                print(f'reading: {outline}, saving to outfile.csv')
                 fileout.seek(0)
                 if outline in fileout.read():
                     break
@@ -41,6 +41,10 @@ def readfile(directoryname, regfile):
                         # print(f'last two:  {newline[-2]}')
                         # print(f'last one:  {newline[-1]}')
                         # print(newline[-3:] == '["\n')
+                        if newline[-3:] == '" \n':
+                            newline = newline.rstrip(newline[-1])
+                            newline = newline.rstrip(newline[-1])
+                            newline = newline.rstrip(newline[-1])
                         if newline[-2:] == '"\n':
                             newline = newline.rstrip(newline[-1])
                             newline = newline.rstrip(newline[-1])
