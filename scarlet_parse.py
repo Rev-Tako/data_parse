@@ -67,4 +67,5 @@ if __name__ == '__main__':
         readfile(directoryname=sys.argv[1], regfile='_Conversation_')
     else:
         print("no directory specified, fallback to default at 'tests_txts'")
-        readfile(directoryname='test_txts', regfile='_Conversation_')
+        # readfile(directoryname='test_txts', regfile='_Conversation_')
+        readfile(directoryname='/scratch', regfile='_Conversation_')
