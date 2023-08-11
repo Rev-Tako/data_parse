@@ -68,4 +68,4 @@ if __name__ == '__main__':
     else:
         print("no directory specified, fallback to default at 'tests_txts'")
         # readfile(directoryname='test_txts', regfile='_Conversation_')
-        readfile(directoryname='/scratch', regfile='_Conversation_')
+        readfile(directoryname='~/DEVWEB/2022/nodejs/scratch', regfile='_Conversation_')
