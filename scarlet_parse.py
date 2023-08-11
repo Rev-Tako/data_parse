@@ -13,6 +13,8 @@ def readfile(directoryname, regfile):
     if txt:
         print('successfully started reading directory')
         print(f'files identified: {txt}')
+    else:
+        print('cannot read files, try again')
 
     for filename in txt:
         print(f'attempting to read file: {filename}')
@@ -45,6 +47,7 @@ def readfile(directoryname, regfile):
                         newline = line.replace('\n', '')
                         newline = f'["{newline}"],'
                     fileout.write(f'{newline}')
+    print('process complete')
     return
 
 
@@ -79,7 +82,6 @@ if __name__ == '__main__':
         try:
             print(f"opening {sys.argv[1]}")
             readfile(directoryname=sys.argv[1], regfile='_Conversation_')
-            print('process complete')
         except Exception as e:
             # handle any other exception
             print('process not complete')
@@ -90,7 +92,6 @@ if __name__ == '__main__':
         try:
             print("opening test_txts")
             readfile(directoryname='test_txts', regfile='_Conversation_')   # '~/DEVWEB/2022/nodejs/scratch' ~/DEVWEB/2022/nodejs/scratch
-            print('process complete')
         except Exception as e:
             # handle any other exception
             print('process not complete')
