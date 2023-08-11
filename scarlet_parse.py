@@ -72,8 +72,10 @@ if __name__ == '__main__':
             print(f"opening {sys.argv[1]}")
             readfile(directoryname=sys.argv[1], regfile='_Conversation_')
             print('process complete')
-        except:
+        except Exception as e:
+            # handle any other exception
             print('process not complete')
+            print("Error '{0}' occured. Arguments {1}.".format(e.message, e.args))
     else:
         print("attempting to read test_txts")
         # readfile(directoryname='test_txts', regfile='_Conversation_')
@@ -81,6 +83,8 @@ if __name__ == '__main__':
             print("opening test_txts")
             readfile(directoryname='test_txts', regfile='_Conversation_')   # '~/DEVWEB/2022/nodejs/scratch' ~/DEVWEB/2022/nodejs/scratch
             print('process complete')
-        except:
+        except Exception as e:
+            # handle any other exception
             print('process not complete')
+            print("Error '{0}' occured. Arguments {1}.".format(e.message, e.args))
 
