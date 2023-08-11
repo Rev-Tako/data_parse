@@ -66,6 +66,11 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         readfile(directoryname=sys.argv[1], regfile='_Conversation_')
     else:
-        print("no directory specified, fallback to default at 'tests_txts'")
+        print("attempting to read ~/DEVWEB/2022/nodejs/scratch")
         # readfile(directoryname='test_txts', regfile='_Conversation_')
-        readfile(directoryname='~/DEVWEB/2022/nodejs/scratch', regfile='_Conversation_')
+        try:
+            readfile(directoryname='~/DEVWEB/2022/nodejs/scratch', regfile='_Conversation_')
+            print('process complete')
+        except:
+            print('process not complete')
+
