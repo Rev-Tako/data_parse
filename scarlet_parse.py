@@ -31,18 +31,17 @@ def readfile(directoryname, regfile):
                 fileout.seek(0)
                 if outline in fileout.read():
                     break
-                fileout.write(f'\n"{outline}", ')
+                fileout.write(f'\n{outline},')
                 for line in f:
                     if "FEEDBACK:" in line:
                         templine = f'"{line}'
-                        newline = re.sub("FEEDBACK: (TP|FP|FN)", '", FEEDBACK: \\1, "', templine)
+                        newline = re.sub("FEEDBACK: (TP|FP|FN)", '",FEEDBACK: \\1,"', templine)
                         # print(f'line:  {newline}')
                         # print(f'last three:  {newline[-3:]}')
                         # print(f'last two:  {newline[-2]}')
                         # print(f'last one:  {newline[-1]}')
                         # print(newline[-3:] == '["\n')
-                        if newline[-3:] == '["\n':
-                            newline = newline.rstrip(newline[-1])
+                        if newline[-2:] == '"\n':
                             newline = newline.rstrip(newline[-1])
                             newline = newline.rstrip(newline[-1])
                     else:
