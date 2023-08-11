@@ -13,6 +13,7 @@ def readfile(directoryname, regfile):
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
             with open(f'output_csvs/{outfile}.csv', 'a+') as fileout:
+                print(f'reading: {outline}, saving to {outfile}')
                 fileout.seek(0)
                 if outline in fileout.read():
                     break
