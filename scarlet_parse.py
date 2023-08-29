@@ -6,7 +6,8 @@ from os.path import exists
 
 
 def readfile(directoryname, regfile):
-    filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'
+    # filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'
+    filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9]{regfile}*'
     print(f'filepattern expected:  {filepath}')
     txt = glob.glob(filepath)
     txt.sort()
@@ -23,11 +24,11 @@ def readfile(directoryname, regfile):
         outfile = filename.replace(f'{regfile}*.txt', '').replace(f'{directoryname}/', '').replace(f'.txt', '')[0:6]
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
-            print(f'creating output file at: output_csvs/outfile_1.csv')
+            print(f'creating output file at: output_csvs/outfile_2.csv')
             if not os.path.isdir('output_csvs'):
                 os.mkdir('output_csvs')
-            with open(f'output_csvs/outfile_1.csv', 'a+') as fileout:
-                print(f'reading: {outline}, saving to outfile_1.csv')
+            with open(f'output_csvs/outfile_2.csv', 'a+') as fileout:
+                print(f'reading: {outline}, saving to outfile_2.csv')
                 fileout.seek(0)
                 if outline in fileout.read():
                     break
