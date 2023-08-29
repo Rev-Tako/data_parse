@@ -23,11 +23,11 @@ def readfile(directoryname, regfile):
         outfile = filename.replace(f'{regfile}*.txt', '').replace(f'{directoryname}/', '').replace(f'.txt', '')[0:6]
         outline = filename.replace(f'{directoryname}/', '')
         with open(filename, 'r') as f:
-            print(f'creating output file at: output_csvs/outfile_0.csv')
+            print(f'creating output file at: output_csvs/outfile_1.csv')
             if not os.path.isdir('output_csvs'):
                 os.mkdir('output_csvs')
-            with open(f'output_csvs/outfile_0.csv', 'a+') as fileout:
-                print(f'reading: {outline}, saving to outfile_0.csv')
+            with open(f'output_csvs/outfile_1.csv', 'a+') as fileout:
+                print(f'reading: {outline}, saving to outfile_1.csv')
                 fileout.seek(0)
                 if outline in fileout.read():
                     break
