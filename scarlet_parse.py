@@ -9,7 +9,8 @@ def readfile(directoryname, regfile):
     # filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'  # 7
     # filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'  # 6
     # filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9]{regfile}*'  # 5
-    filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'  # 10
+    # filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'  # 10
+    filepath = f'{directoryname}/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]{regfile}*'  # 12
     print(f'filepattern expected:  {filepath}')
     txt = glob.glob(filepath)
     txt.sort()
